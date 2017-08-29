@@ -32,6 +32,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(), // 启用 HMR
     new webpack.NamedModulesPlugin(), // 打印日志信息时 webpack 默认使用模块的数字 ID 指代模块，不便于 debug，这个插件可以将其替换为模块的真实路径
     new webpack.BannerPlugin('版权所有，翻版必究'),
+    new webpack.optimize.UglifyJsPlugin({ //压缩bundle
+      compress: {
+        warnings: false
+      }
+    })
   ],
   module: {
     // 多个loader写在rules里面
